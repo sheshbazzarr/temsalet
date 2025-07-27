@@ -1,20 +1,25 @@
-name: Temsalet CI 
+# The 'name' key is at the very start of the line
+name: Temsalet CI
 
+# The 'on' key is also at the very start
 on:
-
+  # IMPORTANT: 'push' and 'workflow_dispatch' must be indented (2 spaces)
   push:
-    branches:[main]
+    # IMPORTANT: 'branches' must be indented under 'push' (4 spaces total)
+    branches: [ main ]
   workflow_dispatch:
+
+# The 'jobs' key is at the very start
 jobs:
-
+  # The job name, 'build-and-test', is indented (2 spaces)
   build-and-test:
-
-    runs-on: ubuntu-latest 
-    
+    # Keys for the job, 'runs-on' and 'steps', are indented under it (4 spaces total)
+    runs-on: ubuntu-latest
     steps:
+      # The dash '-' marks the start of a list item. It's indented under 'steps' (6 spaces)
       - name: Checkout repository code
+        # The keys for this step ('name', 'uses') are indented further (8 spaces)
         uses: actions/checkout@v4
-        
+
       - name: Run a one-line test
-        run: echo "Temsalet workflow is running"
-      
+        run: echo "🎉 Temsalet workflow is running successfully!"
